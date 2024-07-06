@@ -1,4 +1,5 @@
 const express = require('express');
+const connectDatabase = require('./src/config/database')
 const config = require('./src/config/index');
 const cors = require("cors");
 const route = require('./src/routes');
@@ -23,6 +24,7 @@ app.get('/api', (req, res) => {
 route(app);
 
 async function startServer() {
+    await connectDatabase();
     const PORT = config.app.port;
     app.listen(PORT, () => {
         console.log(`Server is running at port ${PORT}`);
