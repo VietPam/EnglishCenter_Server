@@ -7,6 +7,10 @@ const config = {
     db: {
         uri: process.env.MONGODB_URI
     },
+    account_admin:{
+        username: process.env.U_ADMIN,
+        password:  process.env.P_ADMIN
+    },
 }
 
 module.exports = config
